@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/sceneId.unity
+    guid: 5898460ca304ab0448bf984d20b79ac4
+  - enabled: 1
+    path: Assets/Scenes/1.Main menu.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/2.3d Srilanka View.unity
+    guid: cfa653e3565220e4aa6ba0e105a88cf1
   m_configObjects: {}
