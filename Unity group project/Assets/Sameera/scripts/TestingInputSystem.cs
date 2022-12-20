@@ -35,7 +35,7 @@ public class TestingInputSystem : MonoBehaviour
         if (context.performed)
         {
             Debug.Log("Jump!" + context.phase);
-            mainRigidbody.AddForce(Vector3.up * 5f, ForceMode.Impulse);
+            mainRigidbody.AddForce(Vector3.up * 3f, ForceMode.Impulse);
         }
     }
 }
