@@ -9,11 +9,12 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
 
     public float groundDrag;
-
+    
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
     bool readyToJump;
+    
 
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
@@ -67,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         virticalInput = Input.GetAxisRaw("Vertical");
 
-        //when to jump
+               //when to jump
         if (Input.GetKey(jumpKey) && readyToJump && grounded)
         {
             readyToJump = false;
@@ -76,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
+        
 
 
     }
@@ -84,13 +86,15 @@ public class PlayerMovement : MonoBehaviour
         //calculate move direction
         moveDirection = orientation.forward * virticalInput + orientation.right * horizontalInput;
 
-        //on ground
+               //on ground
         if (grounded)
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
 
         //in air
         else if (!grounded)
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+        
+
     }
     private void SpeedControl() {
         Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
@@ -101,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
         }
     }
+    
     private void jump() {
         //reset y veloity
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
@@ -109,5 +114,6 @@ public class PlayerMovement : MonoBehaviour
     private void ResetJump() {
         readyToJump = true;
     }
+    
    
 }
